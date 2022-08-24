@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+body{
+    height: 100vh;
+    line-height: 1.6;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+
+
+}
+
+.navbar {
+  width: 85%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul li {
+  list-style: none;
+  margin: 0 20px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+.navbar ul li::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: #009688;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+#content {
+  width: 100%;
+  color: white;
+  left: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+
+
+
+}
+
+
+
+.scrolling-feat{
+  top: 18px;
+
+}
+
+.scrolling-feat h3{
+  color: white;
+}
+
+.fa-angles-down{
+  display: inline;
+}
+
+form {
+  display: inline;
+}
+
+
+
+
+
+form button {
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #009688;
+  background: transparent;
+  filter: drop-shadow(0 0 15px #009688) drop-shadow(0 0 50px #009688) contrast(1) brightness(1);
+  transition: .5s;
+  cursor: pointer;
+  color: white;
+  /* text-align: center;
+    width: 250px;
+    height: 75px;
+    color: #db3eb1;
+    border: 2px solid #db3eb1;
+    border-radius:15px;
+    padding: 15px 25px;
+    font-size: 30px;
+    font-family: tahoma;
+    letter-spacing:3px;
+    cursor: pointer;
+    font-weight: bold;
+    filter: drop-shadow(0 0 15px #db3eb1) drop-shadow(0 0 50px #db3eb1) contrast(1) brightness(1);
+    transition: .5s; */
+}
+
+button:hover{
+    color: black;
+    background-color: #009688;
+    filter: drop-shadow(0 0 20px #009688) contrast(2) brightness(2);
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center;
+}
+
+.card {
+  height: 300px;
+  width: 300px; 
+  
+}
+
+img {
+  height: 30vh;
+  
+}
+
+.containers h1{
+  font-size: 3rem;
+  text-align: center;
+  position: center;
+}
+
+.containers h2{
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: 3px solid black;
+  box-shadow: 0 0 15px black;
+}
+
+.containers span {
+color: red;
+}
+
+.containers p{
+  width: 100%;
+  color: black;
+  margin-top: 20px;
+}
+
+.cover-card {
+  margin-top: 20px;
+  height: 90vh;
+}
+
+
+#contact {
+  background: url("./assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+}
+
+.form-horizontal {
+  background-color:black;
+  background: no-repeat;
+  width: 640px;
+  margin 50px auto;
+  max-width: 97%;
+  border-radius: 3px;
+  padding: 55px 30px;
+  
+}
+form  .title h2{
+  letter-spacing: 6px;
+  border-bottom: 1px solid white;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 32px;
+}
+
+form .half{
+  display: flex;
+  justify-content: space-between;
+}
+
+form .half .item{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  width: 48%;
+}
+
+form label{
+  display: block;
+  font-size: 20px;
+  letter-spacing: 3.5px;
+  margin-bottom: 16px;
+}
+
+form .half .item input{
+  border-radius: 4px;
+  border: 2px solid white;
+  outline: 0;
+  padding: 16px;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  font-size: 17px;
+}
+
+form .full{
+  margin-bottom: 24px;
+}
+
+form .full textarea{
+  background: transparent;
+  border-radius: 4px;
+  border: 1px solid white;
+  outline: 0;
+  padding: 12px 16px;
+  width: 100%;
+  height: 200px;
+  font-size: 17px;
+}
+
+
+form .action{
+  margin-bottom: 32px;
+}
+
+form .action input{
+  background: transparent;
+  border-radius: 4px;
+  border: 2px solid white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  height: 44px;
+  letter-spacing: 3px;
+  outline: 0;
+  padding: 0 20px 0 22px;
+  margin-right: 10px;
+}
+
+form .action input[type="submit"]{
+  background: white;
+  color: black;
+}
+
+form .icons a{
+  border: 1px solid white;
+  border-radius: 50%;
+  line-height: 36px;
+  text-align: center;
+  font-weight: 600;
+  width: 38px;
+  margin-right: 10px;
+}
+
+form .half .item input:focus, form .full textarea:focus, form .action input[type="reset"]:hover, form .icons a:hover{
+  background: rgba(255,255,255,0.075);
+}
+
+@media (max-width: 480px){
+  form .half{
+    flex-direction: column;
+  }
+  form .half .item{
+    width: 100%;
+  }
+  form .action{
+    display: flex;
+    flex-direction: column;
+  }
+  form .action input{
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+
+.card-head {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background: ;
+  font:white;
+  width: 603px;
+
+}
+
+.card-head span {
+  color:red;
+  display: inline-block;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card-head:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.contain{
+  padding: 2px 16px;
+  color: #black;
+  max-width: 100%;
+}
+
+.contain h4{
+  font-size: 2rem;
+  display: flex;
+}
+
+.contain p{
+  font-size: 1.25rem;
+  max-width: 100%;
+  align-items: center;
+}
+
+.make-row{
+  display: inline;
+  display:flex;
+  gap: 3em;
+  margin-top:50px;
+}
+
+.details {
+}
+
