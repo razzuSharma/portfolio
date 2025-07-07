@@ -27,7 +27,7 @@ export default function Home() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-2xl"
         >
-          I'm a <span className="font-semibold text-primary">software engineer</span> passionate about building
+          I&apos;m a <span className="font-semibold text-primary">software engineer</span> passionate about building
           <span className="text-secondary font-semibold"> fast</span>, 
           <span className="text-secondary font-semibold"> beautiful</span>, and 
           <span className="text-secondary font-semibold"> user-friendly</span> web applications.

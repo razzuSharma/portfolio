@@ -41,6 +41,9 @@ export default function Header() {
           >
             Contact
           </Link>
+          <Link href="/blog" className="hover:text-primary transition-colors">
+            Blogs
+          </Link>
         </nav>
         {/* Mobile menu button */}
         <button
