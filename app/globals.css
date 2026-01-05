@@ -120,3 +120,244 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Enhanced Blog Content Styles */
+.blog-content {
+  @apply text-slate-300;
+}
+
+.blog-content h1 {
+  @apply text-4xl font-extrabold text-slate-100 mt-12 mb-6 pb-4 border-b border-slate-800/50;
+  background: linear-gradient(to right, rgb(94 234 212), rgb(34 211 238), rgb(94 234 212));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blog-content h2 {
+  @apply text-3xl font-bold text-slate-100 mt-10 mb-4 pt-2;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.blog-content h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 4px;
+  background: linear-gradient(to bottom, rgb(94 234 212), rgb(34 211 238));
+  border-radius: 2px;
+}
+
+.blog-content h3 {
+  @apply text-2xl font-semibold text-slate-200 mt-8 mb-3;
+}
+
+.blog-content h4 {
+  @apply text-xl font-semibold text-slate-200 mt-6 mb-2;
+}
+
+.blog-content p {
+  @apply text-slate-300 leading-relaxed mb-6 text-lg;
+  line-height: 1.8;
+}
+
+.blog-content a {
+  @apply text-teal-400 no-underline font-medium border-b border-teal-500/30 hover:border-teal-400/60 transition-colors;
+}
+
+.blog-content strong {
+  @apply text-slate-200 font-semibold;
+}
+
+.blog-content em {
+  @apply text-slate-300 italic;
+}
+
+.blog-content ul,
+.blog-content ol {
+  @apply mb-6 space-y-3 pl-6;
+}
+
+.blog-content ul {
+  @apply list-disc;
+}
+
+.blog-content ol {
+  @apply list-decimal;
+}
+
+.blog-content li {
+  @apply text-slate-300 leading-relaxed;
+}
+
+.blog-content li::marker {
+  @apply text-teal-400;
+}
+
+.blog-content blockquote {
+  @apply border-l-4 border-teal-500/50 pl-6 py-4 my-6 bg-slate-800/30 rounded-r-lg italic text-slate-300;
+  position: relative;
+}
+
+.blog-content blockquote::before {
+  content: '"';
+  @apply text-4xl text-teal-400/50 absolute -left-2 -top-2 font-serif;
+}
+
+.blog-content blockquote p {
+  @apply mb-0;
+}
+
+.blog-content code {
+  @apply text-teal-300 bg-slate-800/70 px-2 py-1 rounded text-sm font-mono border border-teal-500/20;
+}
+
+.blog-content pre {
+  @apply bg-slate-900 border border-slate-700 rounded-xl p-6 my-6 overflow-x-auto;
+  background: linear-gradient(135deg, rgb(15 23 42) 0%, rgb(30 41 59) 100%);
+}
+
+.blog-content pre code {
+  @apply bg-transparent border-0 p-0 text-slate-200;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.blog-content pre::before {
+  content: '';
+  @apply block h-1 w-full mb-4 rounded-t-lg;
+  background: linear-gradient(to right, rgb(94 234 212), rgb(34 211 238));
+}
+
+.blog-content hr {
+  @apply border-0 border-t-2 border-slate-800/50 my-8;
+  background: linear-gradient(to right, transparent, rgb(94 234 212), transparent);
+  height: 2px;
+}
+
+.blog-content table {
+  @apply w-full border-collapse my-6 rounded-lg overflow-hidden;
+}
+
+.blog-content thead {
+  @apply bg-slate-800/50;
+}
+
+.blog-content th {
+  @apply px-4 py-3 text-left text-slate-200 font-semibold border-b border-slate-700;
+}
+
+.blog-content td {
+  @apply px-4 py-3 text-slate-300 border-b border-slate-800/50;
+}
+
+.blog-content tbody tr:hover {
+  @apply bg-slate-800/30;
+}
+
+.blog-content img {
+  @apply rounded-xl my-8 shadow-xl border border-slate-700/50;
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-content > *:first-child {
+  @apply mt-0;
+}
+
+.blog-content > *:last-child {
+  @apply mb-0;
+}
+
+/* Code block syntax highlighting fallback */
+.blog-content pre code .hljs-keyword,
+.blog-content pre code .hljs-built_in,
+.blog-content pre code .hljs-type {
+  @apply text-teal-400;
+}
+
+.blog-content pre code .hljs-string,
+.blog-content pre code .hljs-attr {
+  @apply text-cyan-300;
+}
+
+.blog-content pre code .hljs-comment {
+  @apply text-slate-500 italic;
+}
+
+.blog-content pre code .hljs-number {
+  @apply text-teal-300;
+}
+
+/* Enhanced list styling */
+.blog-content ul li,
+.blog-content ol li {
+  @apply relative;
+}
+
+.blog-content ul li::before {
+  content: '';
+  @apply absolute -left-6 top-3 w-2 h-2 rounded-full bg-teal-400/50;
+}
+
+.blog-content ol {
+  counter-reset: list-counter;
+}
+
+.blog-content ol li {
+  counter-increment: list-counter;
+  @apply relative pl-8;
+}
+
+.blog-content ol li::before {
+  content: counter(list-counter) '.';
+  @apply absolute left-0 font-semibold text-teal-400;
+}
+
+/* Nested lists */
+.blog-content ul ul,
+.blog-content ol ol,
+.blog-content ul ol,
+.blog-content ol ul {
+  @apply mt-2 mb-0;
+}
+
+/* Code block line numbers styling */
+.blog-content pre {
+  position: relative;
+}
+
+.blog-content pre::after {
+  content: '';
+  @apply absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-slate-800/50 to-transparent rounded-t-xl pointer-events-none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-content h1 {
+    @apply text-3xl;
+  }
+  
+  .blog-content h2 {
+    @apply text-2xl;
+  }
+  
+  .blog-content h3 {
+    @apply text-xl;
+  }
+  
+  .blog-content p {
+    @apply text-base;
+  }
+  
+  .blog-content pre {
+    @apply p-4 text-sm;
+  }
+  
+  .blog-content blockquote {
+    @apply pl-4 py-3;
+  }
+}

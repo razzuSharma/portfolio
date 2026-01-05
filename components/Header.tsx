@@ -8,82 +8,102 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{ WebkitBackdropFilter: "blur(24px)" }}
-    >
-      <div className="relative max-w-6xl mx-auto flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 md:p-4 rounded-2xl border border-white/30 dark:border-white/10 bg-white/40 dark:bg-black/30 shadow-lg backdrop-blur-2xl overflow-hidden">
-        {/* Glassmorphism gradient overlay */}
-        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/60 via-white/10 to-transparent dark:from-black/40 dark:via-black/10 dark:to-transparent" />
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-3 py-2 sm:px-4 sm:py-3 md:px-4 md:py-3">
+        <div className="absolute inset-0 -z-10 rounded-2xl border border-teal-500/25 bg-slate-950/80 shadow-[0_18px_60px_rgba(15,118,110,0.55)] backdrop-blur-2xl" />
+        <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-teal-500/20 via-transparent to-cyan-400/20" />
+
         <Link
           href="/"
-          className="relative z-10 text-xl sm:text-2xl font-serif font-bold text-gray-900 dark:text-gray-100 drop-shadow"
+          className="relative z-10 flex items-center gap-2 text-xl font-semibold tracking-tight text-slate-50 sm:text-2xl"
         >
-          Raju Sharma
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-cyan-400 to-emerald-400 text-xs font-bold text-slate-950 shadow-md">
+            RS
+          </span>
+          <span className="drop-shadow-sm">Raju Sharma Dahal</span>
         </Link>
+
         {/* Desktop nav */}
-        <nav className="relative z-10 hidden md:flex space-x-4 sm:space-x-6 text-xs sm:text-sm font-medium">
-          <Link href="/" className="hover:text-primary transition-colors">
+        <nav className="relative z-10 hidden items-center gap-4 text-xs font-medium text-slate-300 sm:flex sm:gap-6 sm:text-sm">
+          <Link
+            href="/"
+            className="transition-colors hover:text-teal-300"
+          >
             Home
           </Link>
           <Link
             href="/projects"
-            className="hover:text-primary transition-colors"
+            className="transition-colors hover:text-teal-300"
           >
             Projects
           </Link>
-          <Link href="/about" className="hover:text-primary transition-colors">
+          <Link
+            href="/about"
+            className="transition-colors hover:text-teal-300"
+          >
             About
           </Link>
           <Link
             href="/contact"
-            className="hover:text-primary transition-colors"
+            className="transition-colors hover:text-teal-300"
           >
             Contact
           </Link>
-          <Link href="/blog" className="hover:text-primary transition-colors">
+          <Link
+            href="/blog"
+            className="transition-colors hover:text-teal-300"
+          >
             Blogs
           </Link>
         </nav>
+
         {/* Mobile menu button */}
         <button
-          className="relative z-10 md:hidden p-2 rounded-md bg-white/30 dark:bg-black/30 hover:bg-white/50 dark:hover:bg-black/50 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="relative z-10 flex items-center justify-center rounded-full border border-teal-500/40 bg-slate-900/70 p-2 text-slate-100 shadow-sm transition hover:border-teal-400/80 hover:bg-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Open menu"
         >
-          <Menu size={22} />
+          <Menu size={20} />
         </button>
       </div>
+
       {/* Mobile nav */}
       {isOpen && (
-        <div className="md:hidden bg-white/90 dark:bg-black/90 backdrop-blur-xl border-b border-white/20 dark:border-white/10 flex flex-col px-3 sm:px-4 pb-4 space-y-2 shadow-lg animate-fade-in">
+        <div className="flex flex-col space-y-1 border-b border-slate-800/80 bg-slate-950/95 px-3 pb-4 pt-1 text-sm text-slate-200 shadow-lg backdrop-blur-xl sm:px-4 md:hidden">
           <Link
             href="/"
-            className="hover:text-primary transition-colors py-2 text-base font-medium"
+            className="rounded-lg px-1 py-2 font-medium transition-colors hover:bg-slate-900 hover:text-teal-300"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
           <Link
             href="/projects"
-            className="hover:text-primary transition-colors py-2 text-base font-medium"
+            className="rounded-lg px-1 py-2 font-medium transition-colors hover:bg-slate-900 hover:text-teal-300"
             onClick={() => setIsOpen(false)}
           >
             Projects
           </Link>
           <Link
             href="/about"
-            className="hover:text-primary transition-colors py-2 text-base font-medium"
+            className="rounded-lg px-1 py-2 font-medium transition-colors hover:bg-slate-900 hover:text-teal-300"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="hover:text-primary transition-colors py-2 text-base font-medium"
+            className="rounded-lg px-1 py-2 font-medium transition-colors hover:bg-slate-900 hover:text-teal-300"
             onClick={() => setIsOpen(false)}
           >
             Contact
+          </Link>
+          <Link
+            href="/blog"
+            className="rounded-lg px-1 py-2 font-medium transition-colors hover:bg-slate-900 hover:text-teal-300"
+            onClick={() => setIsOpen(false)}
+          >
+            Blogs
           </Link>
         </div>
       )}
