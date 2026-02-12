@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Github, Linkedin, Mail, Twitter, ArrowUp, Heart } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,43 +21,86 @@ export default function Footer() {
     { href: "/contact", label: "Contact" },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
-    <footer className="relative  border-t border-slate-800/80 bg-gradient-to-b from-slate-950 to-slate-900">
+    <footer className="relative border-t border-slate-800/80 bg-gradient-to-b from-slate-950 to-slate-900">
       {/* Decorative gradient line */}
-      <div className="absolute top-5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/50 to-transparent" />
-      
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-500/50 to-transparent" />
+
+      {/* Scroll to top button */}
+      <motion.button
+        onClick={scrollToTop}
+        className="absolute -top-5 left-1/2 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-slate-400 shadow-lg transition-all hover:border-teal-500/50 hover:text-teal-400"
+        whileHover={{ scale: 1.1, y: -2 }}
+        whileTap={{ scale: 0.9 }}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={18} />
+      </motion.button>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Section */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center">
+          <motion.div variants={itemVariants} className="space-y-4">
+            <Link href="/" className="group flex items-center gap-2">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-cyan-500 transition-transform group-hover:scale-105">
                 <span className="text-sm font-bold text-slate-900">RS</span>
               </div>
               <span className="text-lg font-bold text-slate-100">Raju Sharma</span>
-            </div>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            </Link>
+            <p className="text-sm leading-relaxed text-slate-400">
               Building modern web experiences with cutting-edge technologies and thoughtful design.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
-                <a
+                <motion.a
                   key={label}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="text-slate-400 hover:text-teal-400 transition-colors"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-700/50 bg-slate-800/30 text-slate-400 transition-all hover:border-teal-500/40 hover:bg-slate-800/60 hover:text-teal-400"
                   aria-label={label}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Icon size={20} />
-                </a>
+                  <Icon size={16} />
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-slate-200 uppercase tracking-wider">
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-200">
               Navigation
             </h3>
             <nav className="flex flex-col space-y-2">
@@ -64,57 +108,76 @@ export default function Footer() {
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm text-slate-400 hover:text-teal-400 transition-colors w-fit"
+                  className="group flex w-fit items-center gap-1 text-sm text-slate-400 transition-colors hover:text-teal-400"
                 >
+                  <span className="h-px w-0 bg-teal-400 transition-all group-hover:w-3" />
                   {label}
                 </Link>
               ))}
             </nav>
-          </div>
+          </motion.div>
 
           {/* Tech Stack */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-slate-200 uppercase tracking-wider">
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-200">
               Built With
             </h3>
             <div className="flex flex-col space-y-2">
-              <span className="text-sm text-slate-400">Next.js</span>
-              <span className="text-sm text-slate-400">TypeScript</span>
-              <span className="text-sm text-slate-400">Tailwind CSS</span>
-              <span className="text-sm text-slate-400">Framer Motion</span>
+              {["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"].map((tech) => (
+                <span
+                  key={tech}
+                  className="inline-flex w-fit items-center gap-2 text-sm text-slate-400"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400/60" />
+                  {tech}
+                </span>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact CTA */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-slate-200 uppercase tracking-wider">
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-200">
               Let&apos;s Connect
             </h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm leading-relaxed text-slate-400">
               Have a project in mind? Let&apos;s work together to bring your ideas to life.
             </p>
-            <Link
-              href="/contact"
-              className="inline-block px-4 py-2 text-sm font-medium text-teal-400 border border-teal-500/30 rounded-lg hover:bg-teal-500/10 hover:border-teal-500/50 transition-all"
-            >
-              Get in Touch
+            <Link href="/contact">
+              <motion.span
+                className="inline-block rounded-lg border border-teal-500/30 px-4 py-2 text-sm font-medium text-teal-400 transition-all hover:border-teal-500/50 hover:bg-teal-500/10"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Get in Touch
+              </motion.span>
             </Link>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800/80">
+        <motion.div
+          variants={itemVariants}
+          className="mt-12 border-t border-slate-800/80 pt-8"
+        >
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-slate-500 text-center sm:text-left">
-              © {currentYear}{" "}
+            <p className="text-center text-xs text-slate-500 sm:text-left">
+              &copy; {currentYear}{" "}
               <span className="font-medium text-slate-300">Raju Sharma</span>. All rights reserved.
             </p>
-            <p className="text-xs text-slate-500 text-center sm:text-right">
-              Crafted with <span className="text-teal-400">♥</span> using modern web technologies
+            <p className="flex items-center gap-1 text-center text-xs text-slate-500 sm:text-right">
+              Crafted with
+              <motion.span
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
+              >
+                <Heart size={12} className="fill-teal-500 text-teal-500" />
+              </motion.span>
+              using modern web technologies
             </p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 }
