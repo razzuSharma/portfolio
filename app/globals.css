@@ -116,9 +116,37 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.4), rgba(34, 211, 238, 0.4));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.6), rgba(34, 211, 238, 0.6));
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(45, 212, 191, 0.3);
+  color: rgb(241, 245, 249);
 }
 
 /* Enhanced Blog Content Styles */
