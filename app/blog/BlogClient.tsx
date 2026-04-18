@@ -11,11 +11,11 @@ interface BlogClientProps {
 
 export default function BlogClient({ featuredBlog, regularBlogs }: BlogClientProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-20 px-4">
+    <div className="min-h-screen bg-[#0a0a0f] py-20 px-4">
       {/* Background decorations */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute w-96 h-96 bg-teal-500/20 rounded-full blur-3xl top-0 left-1/4" />
-        <div className="absolute w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl bottom-0 right-1/4" />
+        <div className="absolute w-96 h-96 bg-[#00d4ff]/10 rounded-full blur-3xl top-0 left-1/4" />
+        <div className="absolute w-96 h-96 bg-[#0ea5e9]/8 rounded-full blur-3xl bottom-0 right-1/4" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -26,8 +26,8 @@ export default function BlogClient({ featuredBlog, regularBlogs }: BlogClientPro
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
-            Blog & Articles
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-[#00d4ff] via-sky-400 to-[#00d4ff] bg-clip-text text-transparent">
+            Blog &amp; Articles
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             Insights, tutorials, and thoughts on modern web development, best practices, and the latest technologies.
@@ -70,4 +70,3 @@ export default function BlogClient({ featuredBlog, regularBlogs }: BlogClientPro
     </div>
   );
 }
-
